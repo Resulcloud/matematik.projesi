@@ -9,7 +9,9 @@
         body { background-color: #f8f9fa; font-family: sans-serif; }
         .hero-section { background: linear-gradient(135deg, #1a2a6c, #b21f1f); color: white; padding: 60px 0; }
         .video-container { max-width: 800px; margin: 0 auto; background: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .calc-section { background: white; border-radius: 15px; border-left: 6px solid #1a2a6c; }
+        .calc-section { background: white; border-radius: 15px; border-left: 6px solid #1a2a6c; margin-bottom: 50px; }
+        .card { transition: transform 0.3s; border: none; }
+        .card:hover { transform: translateY(-10px); }
     </style>
 </head>
 <body>
@@ -29,60 +31,72 @@
                 Tarayıcınız video oynatmayı desteklemiyor.
             </video>
         </div>
+        <p class="text-muted mt-2">Video yüklenmiyorsa lütfen sayfayı <b>Ctrl + F5</b> ile yenileyin.</p>
     </section>
 
-    <section class="container my-5 p-4 calc-section shadow-sm">
+    <section class="container p-4 calc-section shadow-sm">
         <h3 class="fw-bold mb-3">🔢 Matematik & Yazılım: Binary Dönüştürücü</h3>
-        <p class="text-muted">Bir sayı girin ve bilgisayarın bunu nasıl "0 ve 1" olarak gördüğünü keşfedin.</p>
+        <p class="text-muted">Bir sayı girin ve bilgisayarın bu sayıyı nasıl "0 ve 1" olarak gördüğünü keşfedin.</p>
         <div class="row g-3 align-items-center">
             <div class="col-auto">
-                <input type="number" id="decimalInput" class="form-control" placeholder="Sayı girin (Örn: 25)">
+                <input type="number" id="decimalInput" class="form-control form-control-lg" placeholder="Sayı girin (Örn: 25)">
             </div>
             <div class="col-auto">
-                <button onclick="convertToBinary()" class="btn btn-primary">Dönüştür</button>
+                <button onclick="convertToBinary()" class="btn btn-primary btn-lg shadow">Dönüştür</button>
             </div>
             <div class="col-auto">
-                <h4 id="binaryResult" class="text-success fw-bold m-0"></h4>
+                <h2 id="binaryResult" class="text-success fw-bold m-0 ms-3"></h2>
             </div>
         </div>
     </section>
 
-    <main class="container my-5">
+    <main class="container mb-5">
         <div class="row g-4 text-center">
             <div class="col-md-4">
-                <div class="card h-100 p-4 shadow-sm">
-                    <h3>Doğanın Dili</h3>
-                    <p>Fibonacci ve Altın Oran.</p>
-                    <a href="doga.html" class="btn btn-outline-success mt-auto">Keşfet</a>
+                <div class="card h-100 p-4 shadow-sm border-top border-success border-5">
+                    <h3 class="text-success">Doğanın Dili</h3>
+                    <p class="text-muted">Fibonacci spiralleri ve altın oran ile doğadaki gizli bağ.</p>
+                    <a href="doga.html" class="btn btn-success mt-auto">Keşfet</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 shadow-sm">
-                    <h3>Mantık ve Yazılım</h3>
-                    <p>Algoritmalar ve Matematik.</p>
-                    <a href="yazilim.html" class="btn btn-outline-primary mt-auto">İncele</a>
+                <div class="card h-100 p-4 shadow-sm border-top border-primary border-5">
+                    <h3 class="text-primary">Mantık ve Yazılım</h3>
+                    <p class="text-muted">Algoritmaların temelindeki matematiksel mimari.</p>
+                    <a href="yazilim.html" class="btn btn-primary mt-auto">İncele</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 p-4 shadow-sm">
-                    <h3>Sanat ve Mimari</h3>
-                    <p>Geometrik Mükemmellik.</p>
-                    <a href="sanat.html" class="btn btn-outline-danger mt-auto">Göz At</a>
+                <div class="card h-100 p-4 shadow-sm border-top border-danger border-5">
+                    <h3 class="text-danger">Sanat ve Mimari</h3>
+                    <p class="text-muted">Fraktal sanat ve geometrik mükemmellik.</p>
+                    <a href="sanat.html" class="btn btn-danger mt-auto">Göz At</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="text-center py-4 text-muted">
-        Resul Karakaş - Bilgisayar Programcılığı
+    <footer class="text-center py-5 border-top bg-white">
+        <p class="mb-0">Bilgisayar Programcılığı Öğrencisi <b>Resul Karakaş</b> tarafından hazırlanmıştır.</p>
     </footer>
 
     <script>
     function convertToBinary() {
         let dec = document.getElementById("decimalInput").value;
-        if (dec === "") return;
+        let resultDisplay = document.getElementById("binaryResult");
+        
+        if (dec === "" || dec < 0) {
+            alert("Lütfen geçerli bir pozitif sayı girin!");
+            return;
+        }
+        
+        // Onluk tabandan ikilik tabana matematiksel dönüşüm
         let bin = parseInt(dec).toString(2);
-        document.getElementById("binaryResult").innerText = "Binary: " + bin;
+        resultDisplay.innerText = "Binary: " + bin;
+        
+        // Görsel efekt: Sonuç her değiştiğinde hafifçe parlasın
+        resultDisplay.style.opacity = 0;
+        setTimeout(() => { resultDisplay.style.opacity = 1; resultDisplay.style.transition = "0.5s"; }, 10);
     }
     </script>
 </body>
