@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
         body { background-color: #f8f9fa; font-family: sans-serif; }
         .hero-section { background: linear-gradient(135deg, #1a2a6c, #b21f1f); color: white; padding: 60px 0; }
         .video-container { max-width: 800px; margin: 0 auto; background: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .calc-section { background: white; border-radius: 15px; border-left: 6px solid #1a2a6c; }
     </style>
 </head>
 <body>
@@ -30,36 +31,59 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <section class="container my-5 p-4 bg-white rounded shadow-sm" style="border-left: 5px solid #1a2a6c;">
-    <h3 class="fw-bold mb-3">🔢 Matematik & Yazılım: Binary Dönüştürücü</h3>
-    <p class="text-muted">Bir sayı girin ve bilgisayarın bu sayıyı arka planda nasıl "0 ve 1" olarak gördüğünü keşfedin.</p>
-    
-    <div class="row g-3 align-items-center">
-        <div class="col-auto">
-            <input type="number" id="decimalInput" class="form-control" placeholder="Örn: 25">
+    <section class="container my-5 p-4 calc-section shadow-sm">
+        <h3 class="fw-bold mb-3">🔢 Matematik & Yazılım: Binary Dönüştürücü</h3>
+        <p class="text-muted">Bir sayı girin ve bilgisayarın bunu nasıl "0 ve 1" olarak gördüğünü keşfedin.</p>
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <input type="number" id="decimalInput" class="form-control" placeholder="Sayı girin (Örn: 25)">
+            </div>
+            <div class="col-auto">
+                <button onclick="convertToBinary()" class="btn btn-primary">Dönüştür</button>
+            </div>
+            <div class="col-auto">
+                <h4 id="binaryResult" class="text-success fw-bold m-0"></h4>
+            </div>
         </div>
-        <div class="col-auto">
-            <button onclick="convertToBinary()" class="btn btn-primary">Dönüştür</button>
-        </div>
-        <div class="col-auto">
-            <h4 id="binaryResult" class="text-success fw-bold m-0"></h4>
-        </div>
-    </div>
-</section>
+    </section>
 
-<script>
-function convertToBinary() {
-    let dec = document.getElementById("decimalInput").value;
-    if (dec === "") {
-        alert("Lütfen bir sayı girin!");
-        return;
+    <main class="container my-5">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="card h-100 p-4 shadow-sm">
+                    <h3>Doğanın Dili</h3>
+                    <p>Fibonacci ve Altın Oran.</p>
+                    <a href="doga.html" class="btn btn-outline-success mt-auto">Keşfet</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 shadow-sm">
+                    <h3>Mantık ve Yazılım</h3>
+                    <p>Algoritmalar ve Matematik.</p>
+                    <a href="yazilim.html" class="btn btn-outline-primary mt-auto">İncele</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 shadow-sm">
+                    <h3>Sanat ve Mimari</h3>
+                    <p>Geometrik Mükemmellik.</p>
+                    <a href="sanat.html" class="btn btn-outline-danger mt-auto">Göz At</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 text-muted">
+        Resul Karakaş - Bilgisayar Programcılığı
+    </footer>
+
+    <script>
+    function convertToBinary() {
+        let dec = document.getElementById("decimalInput").value;
+        if (dec === "") return;
+        let bin = parseInt(dec).toString(2);
+        document.getElementById("binaryResult").innerText = "Binary: " + bin;
     }
-    // Matematiğin sihrini kullanarak onluk tabandan ikilik tabana çevirme
-    let bin = parseInt(dec).toString(2);
-    document.getElementById("binaryResult").innerText = "Binary: " + bin;
-}
-</script>
+    </script>
 </body>
 </html>
-
