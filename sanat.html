@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanat, Mimari ve Altın Oran | Matematik Projesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { background-color: #fffcf9; font-family: 'Segoe UI', sans-serif; color: #442c2c; }
+        .hero-art { background: linear-gradient(135deg, #dc3545, #6a1b22); color: white; padding: 80px 0; }
+        .art-card { background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(220, 53, 69, 0.1); margin-top: -50px; padding: 40px; }
+        .calc-box { background: #fdf2f2; border: 2px dashed #dc3545; border-radius: 15px; padding: 30px; margin: 30px 0; }
+        .phi-symbol { font-size: 3rem; color: #dc3545; font-family: serif; }
+        .feature-icon { font-size: 2rem; color: #dc3545; margin-bottom: 10px; }
+        .img-zoom { transition: transform .3s; border-radius: 15px; width: 100%; height: 300px; object-fit: cover; }
+        .img-zoom:hover { transform: scale(1.03); }
+    </style>
+</head>
+<body>
+
+    <header class="hero-art text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Sanat ve Mimari</h1>
+            <p class="lead">Estetiğin Matematiksel Formülü: Altın Oran</p>
+            <a href="index.html" class="btn btn-outline-light rounded-pill mt-3"><i class="bi bi-arrow-left"></i> Ana Sayfaya Dön</a>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="art-card">
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-7">
+                    <h2 class="fw-bold text-danger">Altın Oran (Phi approx 1.618)</h2>
+                    <p class="lead mt-3">
+                        Altın Oran, tarihin başından beri sanatçılar ve mimarlar tarafından "mükemmel estetik" için kullanılan bir matematiksel sabittir. 
+                        Bir yapıda veya tabloda parçaların birbirine oranı 1.618'e yaklaştığında, insan beyni bunu en "güzel" haliyle algılar.
+                    </p>
+                    <p><b>Nerelerde Karşımıza Çıkar?</b></p>
+                    <ul>
+                        <li><b>Leonardo da Vinci:</b> Mona Lisa ve Son Akşam Yemeği tablolarında yüz ve mekan oranları.</li>
+                        <li><b>Antik Mimari:</b> Yunanistan'daki Partenon tapınağının cephe genişliği ve yüksekliği.</li>
+                        <li><b>Mimar Sinan:</b> Süleymaniye ve Selimiye camilerinin minare ve kubbe oranları.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <div class="phi-symbol">Φ</div>
+                    <p class="fw-bold">İlahi Oran</p>
+                    <img src="data:image/jpeg;base64,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" class="img-zoom shadow" alt="Klasik Mimari">
+                </div>
+            </div>
+
+            <div class="calc-box">
+                <h3 class="text-center fw-bold mb-4"><i class="bi bi-calculator"></i> Altın Oran Hesaplayıcı</h3>
+                <p class="text-center text-muted">Bir uzunluk girin, Altın Oran'a göre ideal eşini bulalım.</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <label class="form-label fw-bold">Kısa Kenar (Birimi girin):</label>
+                        <input type="number" id="inputVal" class="form-control form-control-lg" placeholder="Örn: 100" oninput="calculatePhi()">
+                    </div>
+                    <div class="col-md-2 text-center align-self-end mt-3 mb-3">
+                        <i class="bi bi-arrow-right-circle-fill display-6 text-danger"></i>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label fw-bold">İdeal Uzun Kenar (1.618):</label>
+                        <div id="result" class="h3 text-danger fw-bold mt-2">0</div>
+                    </div>
+                </div>
+                <div class="text-center mt-3 small text-secondary">
+                    Yazılım Algoritması: Girilen Değer $\times$ 1.618
+                </div>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-md-6">
+                    <div class="p-4 border rounded-4">
+                        <i class="bi bi-brush feature-icon"></i>
+                        <h4>Resim Sanatında Geometri</h4>
+                        <p>Rönesans sanatçıları, tuvalin her noktasını matematiksel olarak hesaplardı. Altın spiral, gözün tabloya odaklanacağı en estetik yolu belirler.</p>
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=1000" class="img-fluid rounded shadow-sm mt-2" style="height: 200px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 border rounded-4">
+                        <i class="bi bi-bank feature-icon"></i>
+                        <h4>Mimaride Denge</h4>
+                        <p>Modern mimaride gökdelenlerin rüzgar direncinden, cephe tasarımlarına kadar her şey geometrik bir dizi olan Fibonacci sayılarını temel alır.</p>
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000" class="img-fluid rounded shadow-sm mt-2" style="height: 200px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculatePhi() {
+            let input = document.getElementById("inputVal").value;
+            let res = document.getElementById("result");
+            if(input > 0) {
+                let phiResult = (input * 1.61803398875).toFixed(2);
+                res.innerHTML = phiResult;
+            } else {
+                res.innerHTML = "0";
+            }
+        }
+    </script>
+
+    <footer class="text-center py-4 text-muted">
+        <small>Bilgisayar Programcılığı Bölümü | Sanat ve Matematik Analizi</small>
+    </footer>
+
+</body>
+</html>
